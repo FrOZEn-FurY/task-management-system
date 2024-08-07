@@ -5,9 +5,9 @@ export default function Navbar() {
     return (
         <>
             <nav className={styles.navbar}>
-                <h1 className={styles.navbarBrand}><Link className={styles.navbarLink} href={'/'}>Home</Link></h1>
-                <ul className={styles.navbarItemContainer}>
-                    <li className={styles.navbarItem}><Link className={styles.navbarLink} href={'/'}>Create a task</Link></li>
+                <h1><Link href={'/'}>Home</Link></h1>
+                <ul>
+                    <li><Link href={'/'}>Create a task</Link></li>
                 </ul>
             </nav>
         </>
