@@ -1,0 +1,41 @@
+.mainLight {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-grow: 1;
+  padding: 1rem;
+  background-color: #ffeefa;
+  color: #333;
+}
+
+.mainDark {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-grow: 1;
+  padding: 1rem;
+  background-color: #333;
+  color: #ffeefa;
+}
+
+.footerLight {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: #ffffed;
+  border-top: 0.25rem solid #eaeaea;
+  color: #333;
+  font-size: 1.3rem;
+}
+
+.footerDark {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background-color: #333;
+    border-top: 0.25rem solid #111;
+    color: #ffffed;
+    font-size: 1.3rem;
+  }

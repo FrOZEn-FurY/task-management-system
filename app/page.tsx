@@ -1,18 +1,6 @@
-import Navbar from "@/components/navbar/navbar";
-import styles from './page.module.css'
+import Home from "@/components/home/home";
 
-export default function Home() {
-    return (
-        <>
-            <header>
-                <Navbar></Navbar>
-            </header>
-            <main className={styles.main}>
-                <h1>Home</h1>
-            </main>
-            <footer className={styles.footer}>
-                Task Management System
-            </footer>
-        </>
-    );
+export default function HomePage() {
+
+    return <Home></Home>;
 }
