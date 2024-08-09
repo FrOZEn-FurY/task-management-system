@@ -4,8 +4,8 @@
   justify-content: flex-start;
   align-items: center;
   padding: 1rem;
-  background-color: #ffffed;
-  border-bottom: 0.25rem solid #eaeaea;
+  background-color: #f3f3ae;
+  border-bottom: 0.25rem solid #cac3c3;
   color: #333;
   font-size: 1.3rem;
   
@@ -29,10 +29,12 @@
 
   a {
     text-decoration: none;
+    user-select: none;
     
     &:hover {
       text-shadow: 5px 5px 10px #333;
       transition: all 0.3s ease-in;
+      cursor: pointer;
     }
     
     &:visited {
@@ -58,8 +60,8 @@
   justify-content: flex-start;
   align-items: center;
   padding: 1rem;
-  background-color: #333;
-  border-bottom: 0.25rem solid #111;
+  background-color: #0c0d1d;
+  border-bottom: 0.25rem solid #3f3f41;
   color: #eaeaea;
   font-size: 1.3rem;
   
@@ -83,10 +85,12 @@
 
   a {
     text-decoration: none;
+    user-select: none;
     
     &:hover {
       text-shadow: 5px 5px 10px #deeaae;
       transition: all 0.3s ease-in;
+      cursor: pointer;
     }
     
     &:visited {

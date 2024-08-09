@@ -1,0 +1,21 @@
+.footerLight {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f3f3ae;
+  border-top: 0.25rem solid #cac3c3;
+  color: #333;
+  font-size: 1.3rem;
+}
+
+.footerDark {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: #0c0d1d;
+  border-top: 0.25rem solid #3f3f41;
+  color: #ffffed;
+  font-size: 1.3rem;
+}
