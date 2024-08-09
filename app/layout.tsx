@@ -18,7 +18,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <RootProvider>{children}</RootProvider>
+        <RootProvider>{children}</RootProvider> 
+        {
+          // Including the provider given by redux, to wrap the application inside a provider that gives us all the states made.
+        }
       </body>
     </html>
   );
