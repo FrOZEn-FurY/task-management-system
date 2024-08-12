@@ -52,7 +52,7 @@ export default function HomePage() {
                     <p>{showTodo.description}</p>
                     <div>
                         <label htmlFor="completed">Completed:</label>
-                        <input type="checkbox" checked={showTodo.completed} onChange={() => handleToggle(showTodo.id)} />
+                        <input type="checkbox" checked={todos.find(todo => todo.id === showTodo.id)?.completed} onChange={() => handleToggle(showTodo.id)} />
                         <Link href={`/delete/${showTodo.id}`}>Delete</Link>
                         <Link href={`/edit/${showTodo.id}`}>Edit</Link>
                     </div>

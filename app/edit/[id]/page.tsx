@@ -67,7 +67,6 @@ export default function EditPage() {
                     {...register("completed")}
                     id="state"
                     type="checkbox"
-                    defaultChecked={true}
                     aria-invalid={errors.completed ? "true" : "false"}
                 />
                 {errors.completed && <span>{errors.completed.message}</span>}
