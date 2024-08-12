@@ -1,5 +1,8 @@
 'use client';
-
+/**
+ * Handles editing a todo, based on the id parameter passed by URL.
+ * We show a form to the user and let them edit the todo as they like.
+ * */
 import {useForm} from "react-hook-form";
 import {useParams, useRouter} from "next/navigation";
 import {useTodoSelector} from "@/redux/todo/store";
@@ -8,19 +11,19 @@ import styles from "@/app/create/page.module.scss";
 import {useThemeSelector} from "@/redux/theme/store";
 import {editTodo} from "@/redux/todo/features/todoSlice";
 
-interface FormFields {
+interface FormFields { // Form interface.
     title: string;
     description: string;
     completed: boolean;
 }
 
 export default function EditPage() {
-    const id = Number(useParams()?.id);
+    const id = Number(useParams()?.id); // Getting the id given by params.
     const router = useRouter();
     const todos = useTodoSelector(state => state.todoReducer.value.todos);
     const isDark = useThemeSelector(state => state.themeReducer.isDarkMode);
 
-    if (todos.find(todo => todo.id === id) === undefined) {
+    if (todos.find(todo => todo.id === id) === undefined) { // If book with such ID didn't exist, we navigate them to home page.
         router.push("/");
     }
 
@@ -29,7 +32,7 @@ export default function EditPage() {
             title: todos.find(todo => todo.id === id)?.title,
             description: todos.find(todo => todo.id === id)?.description,
             completed: todos.find(todo => todo.id === id)?.completed,
-        }
+        } // defaultValues parameter determines what are the initialValues for the inputs.
     });
 
     const dispatch = useDispatch();
@@ -74,7 +77,7 @@ export default function EditPage() {
         </form>
     );
 
-    function submit(values: FormFields) {
+    function submit(values: FormFields) { // Submission of the form and editing.
         const task = {
             id,
             ...values

@@ -1,4 +1,8 @@
 'use client';
+/**
+ * Creates a new todo.
+ * Shows a form to the user, validates it and the does a submission to create a new todo.
+ * */
 import {useForm} from "react-hook-form";
 import {useThemeSelector} from "@/redux/theme/store";
 import styles from './page.module.scss';
@@ -7,7 +11,7 @@ import {useDispatch} from "react-redux";
 import {addTodo, setLastID} from "@/redux/todo/features/todoSlice";
 import {useRouter} from "next/navigation";
 
-interface FormFields {
+interface FormFields { // Form types.
     title: string;
     description: string;
     completed: boolean;
@@ -57,7 +61,7 @@ export default function CreatePage() {
         </form>
     );
 
-    function submit(values: FormFields) {
+    function submit(values: FormFields) { // A submission to the form that adds a todo.
         const task = {
             id: lastID,
             ...values

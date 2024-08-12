@@ -14,7 +14,7 @@ import { setName } from '@/redux/user/features/userSlice';
 
 export default function Navbar() {
     const isDark = useThemeSelector((state) => state.themeReducer.isDarkMode); // Checking the theme and giving styles based on the theme.
-    const user = useUserSelector((state) => state.userReducer.name);
+    const user = useUserSelector((state) => state.userReducer.name); // Getting the user status.
     const dispatch = useDispatch(); // Using dispatch to toggle the theme stats
     return (
         <header>
@@ -35,7 +35,7 @@ export default function Navbar() {
         dispatch(toggleTheme());
     }
 
-    function handleLogout() {
+    function handleLogout() { // Logs the user out.
         localStorage.removeItem("username");
         dispatch(setName(""));
     }

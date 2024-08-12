@@ -12,7 +12,7 @@ import {useState} from "react";
 import {XMarkIcon} from "@heroicons/react/20/solid";
 import Link from "next/link";
 
-interface Todo {
+interface Todo { // The interface each task (todo) has.
     id: number,
     title: string,
     description: string,
@@ -20,17 +20,18 @@ interface Todo {
 }
 
 export default function HomePage() {
+    // This state is used to determine wether a todo must be shown or not.
     const [showTodo, setShowTodo] = useState<Todo | undefined>(undefined);
     const {todos, lastID } = useTodoSelector((state) => {
         return {
             todos: state.todoReducer.value.todos,
             lastID: state.todoReducer.value.lastId
         }
-    });
+    }); // Get the todos and lastID at the same time.
     const isDark = useThemeSelector((state) => state.themeReducer.isDarkMode);
     const dispatch = useDispatch();
-    if (todos.length === 0) {
-        Object.keys(localStorage).
+    if (todos.length === 0) { // If the todos array is empty, it usually means that the application got refreshed, so we check for the todos.
+        Object.keys(localStorage). // Using the object and the keys array to get only the todos from localStorage.
             filter(key => key.startsWith("todo")).
             forEach(key => {
                 const task = JSON.parse(localStorage.getItem(key) as string);
@@ -58,6 +59,12 @@ export default function HomePage() {
                 </section>
             }
             {
+                /**
+                 * The todo that is selected to being shown is using a position relative, absolute strategy to show itself.
+                 * It is notable that we are using the selected book itself and storing it in the state to show it.
+                 * */
+            }
+            {
                 todos.map((todo) => {
                     return (
                         <section key={todo.id} className={isDark ? styles.todoDark : styles.todoLight}>
@@ -75,11 +82,11 @@ export default function HomePage() {
         </>
     );
 
-    function handleClose() {
+    function handleClose() { // Closes the shown todo.
         setShowTodo(undefined);
     }
 
-    function handleToggle(id: number) {
+    function handleToggle(id: number) { // Handles the toggling of a todo.
         const todo = JSON.parse(localStorage.getItem(`todo${id}`) as string);
         dispatch(toggleTodo(id));
         todo.completed = !todo.completed;
