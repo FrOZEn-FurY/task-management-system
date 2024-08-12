@@ -21,7 +21,7 @@ export default function Navbar() {
             <nav className={isDark ? styles.navbarDark : styles.navbarLight}>
                 <h1><Link href={'/'}>Home</Link></h1>
                 <ul>
-                    <li><Link href={'/'}>Create a task</Link></li>
+                    <li><Link href={'/create'}>Create a task</Link></li>
                     {user === "" ? (
                         <li><Link href={'/login'}>Login</Link></li>
                     ) : <li><a onClick={handleLogout}>Log out</a></li>}

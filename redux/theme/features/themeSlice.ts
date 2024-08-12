@@ -8,7 +8,7 @@ interface ThemeState { // Making an interface so we are not worried about the ty
 }
 
 const initialState: ThemeState = { // The initial state of the theme state.
-    isDarkMode: false,
+    isDarkMode: true,
 };
 
 export const themeSlice = createSlice({ // Creating and slicer, which is the base of the theme state.

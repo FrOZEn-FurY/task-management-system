@@ -1,0 +1,521 @@
+.todoLight {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-self: flex-start;
+    gap: 2rem;
+    flex-basis: 19%;
+
+    padding: 2rem;
+
+    background-color: #fffa91;
+
+    border-radius: 20%;
+    border: 1px solid #333;
+    h2 {
+        font-size: 2rem;
+        font-weight: bold;
+
+        text-align: center;
+        text-transform: capitalize;
+
+        border-bottom: 1px solid #333;
+    }
+
+    p {
+        font-size: 1.2rem;
+        font-weight: 500;
+
+        max-lines: 1;
+        overflow-x: hidden;
+        white-space: nowrap;
+        text-wrap: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    div {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+
+        border-top: 1px solid #333;
+
+        padding: 0.3rem;
+        padding-top: 0.7rem;
+
+        label {
+            font-size: 1.2rem;
+            font-weight: 400;
+
+            margin-right: -0.5rem;
+        }
+
+        input[type="checkbox"] {
+            margin-right: auto;
+
+            width: 1.2rem;
+            height: 1.2rem;
+
+            outline: 1px solid red;
+            outline-offset: -1px;
+
+            box-shadow: 0 0 10px red;
+
+            transition: all 0.2s ease-in;
+            
+            &:checked {
+                outline-color: green;
+
+                box-shadow: 0 0 10px green;
+
+                transition: all 0.2s ease-in;
+            }
+        }
+
+        button {
+            border: 1px solid darkblue;
+            border-radius: 1rem;
+
+            background-color: transparent;
+            color: darkblue;
+
+            padding: 0.5rem;
+
+            font-weight: 500;
+            font-size: 1rem;
+
+            transition: all 0.3s ease-in;
+
+            &:hover {
+                cursor: pointer;
+
+                color: white;
+                background-color: darkblue;
+
+                transition: all 0.3s ease-in;
+            }
+        }
+    }
+}
+
+.todoDark {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-self: flex-start;
+    gap: 2rem;
+    flex-basis: 19%;
+
+    padding: 2rem;
+
+    background-color: #444555;
+
+    border-radius: 20%;
+    border: 1px solid #ffffed;
+    h2 {
+        font-size: 2rem;
+        font-weight: bold;
+
+        text-align: center;
+        text-transform: capitalize;
+
+        border-bottom: 1px solid #ffffed;
+    }
+
+    p {
+        font-size: 1.2rem;
+        font-weight: 500;
+
+        max-lines: 1;
+        overflow-x: hidden;
+        white-space: nowrap;
+        text-wrap: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    div {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+
+        border-top: 1px solid #ffffed;
+
+        padding: 0.3rem;
+        padding-top: 0.7rem;
+
+        label {
+            font-size: 1.2rem;
+            font-weight: 400;
+
+            margin-right: -0.5rem;
+        }
+
+        input[type="checkbox"] {
+            margin-right: auto;
+
+            width: 1.2rem;
+            height: 1.2rem;
+
+            outline: 1px solid red;
+            outline-offset: -1px;
+
+            box-shadow: 0 0 10px red;
+
+            transition: all 0.2s ease-in;
+            
+            &:checked {
+                outline-color: lightgreen;
+
+                box-shadow: 0 0 10px lightgreen;
+
+                transition: all 0.2s ease-in;
+            }
+        }
+
+        button {
+            border: 1px solid aqua;
+            border-radius: 1rem;
+
+            background-color: transparent;
+            color: aqua;
+
+            padding: 0.5rem;
+
+            font-weight: 500;
+            font-size: 1rem;
+
+            transition: all 0.3s ease-in;
+
+            &:hover {
+                cursor: pointer;
+
+                color: black;
+                background-color: aqua;
+
+                transition: all 0.3s ease-in;
+            }
+        }
+    }
+}
+
+.showedTodoLight {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1rem;
+
+    background-color: #ead49d;
+    color: #5c5555;
+
+    position: absolute;
+    left: calc(50% - 18rem);
+    top: calc(50% - 20rem);
+
+    width: 36rem;
+
+    margin: 0;
+    padding: 1.5rem;
+
+    border-radius: 2rem;
+
+    box-shadow: 0.2rem 0.2rem 1rem #514e4e;
+
+    h2 {
+        font-size: 2.5rem;
+        font-weight: bold;
+
+        text-transform: capitalize;
+        text-align: center;
+
+        border-bottom: 1px solid #3e3939;
+        border-radius: 0.5rem;
+
+        position: relative;
+
+        letter-spacing: 0.1rem;
+
+        text-shadow: 0 0 0.5rem #ffffff;
+
+        span {
+            position: absolute;
+            right: 0.1rem;
+            top: -1rem;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    p {
+        font-size: 1.2rem;
+        font-weight: 800;
+
+        letter-spacing: 0.075rem;
+
+        text-wrap: wrap;
+        text-align: justify;
+
+        block-size: 20rem;
+
+        overflow-y: auto;
+
+        scroll-behavior: smooth;
+        scrollbar-width: thin;
+        scrollbar-arrow-color: hsl(0, 0%, 100%);
+        scrollbar-color: hsl(60, 40%, 70%) hsl(0, 0%, 30%);
+    }
+
+    div {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        border-top: 1px solid #5c5555;
+        border-radius: 0.5rem;
+
+        padding: 0.75rem;
+
+        label {
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+
+        input[type="checkbox"] {
+            margin-inline-end: auto;
+            margin-inline-start: 0.7rem;
+
+            width: 1.2rem;
+            height: 1.2rem;
+
+            outline: 1px solid red;
+            outline-offset: -1px;
+
+            box-shadow: 0 0 10px red;
+
+            transition: all 0.2s ease-in;
+
+            &:checked {
+                outline-color: green;
+
+                box-shadow: 0 0 10px green;
+
+                transition: all 0.2s ease-in;
+            }
+        }
+
+        a:first-of-type {
+            font-size: 1.2rem;
+            font-weight: 800;
+
+            text-decoration: none;
+
+            margin-inline: 1rem;
+            padding: 0.5rem;
+
+            background-color: transparent;
+            color: hsl(0, 100%, 40%);
+
+            border: 1px solid hsl(0, 100%, 40%);
+            border-radius: 2rem;
+
+            transition: all 0.3s ease-in;
+
+            &:hover {
+                background-color: hsl(0, 100%, 40%);
+                color: hsl(0, 100%, 100%);
+
+                transition: all 0.3s ease-in;
+            }
+        }
+
+        a:last-of-type {
+            font-size: 1.2rem;
+            font-weight: 800;
+
+            text-decoration: none;
+
+            margin-inline: 1rem;
+            padding: 0.5rem;
+
+            background-color: transparent;
+            color: hsl(210, 100%, 40%);
+
+            border: 1px solid hsl(210, 100%, 40%);
+            border-radius: 2rem;
+
+            transition: all 0.3s ease-in;
+
+            &:hover {
+                background-color: hsl(210, 100%, 40%);
+                color: hsl(0, 100%, 100%);
+
+                transition: all 0.3s ease-in;
+            }
+        }
+    }
+}
+
+.showedTodoDark {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1rem;
+
+    background-color: #454541;
+    color: #eae4e4;
+
+    position: absolute;
+    left: calc(50% - 18rem);
+    top: calc(50% - 20rem);
+
+    width: 36rem;
+
+    margin: 0;
+    padding: 1.5rem;
+
+    border-radius: 2rem;
+
+    box-shadow: 0.2rem 0.2rem 1rem #d3caca;
+
+    h2 {
+        font-size: 2.5rem;
+        font-weight: bold;
+
+        text-transform: capitalize;
+        text-align: center;
+
+        border-bottom: 1px solid #e8dbdb;
+        border-radius: 0.5rem;
+
+        position: relative;
+
+        letter-spacing: 0.1rem;
+
+        text-shadow: 0 0 0.5rem #3c3232;
+
+        span {
+            position: absolute;
+            right: 0.1rem;
+            top: -1rem;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    p {
+        font-size: 1.2rem;
+        font-weight: 800;
+
+        letter-spacing: 0.075rem;
+
+        text-wrap: wrap;
+        text-align: justify;
+
+        block-size: 20rem;
+
+        overflow-y: auto;
+
+        scroll-behavior: smooth;
+        scrollbar-width: thin;
+        scrollbar-arrow-color: hsl(0, 0%, 0%);
+        scrollbar-color: hsl(0, 30%, 20%) hsl(0, 0%, 70%);
+    }
+
+    div {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        border-top: 1px solid #e8dbdb;
+        border-radius: 0.5rem;
+
+        padding: 0.75rem;
+
+        label {
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+
+        input[type="checkbox"] {
+            margin-inline-end: auto;
+            margin-inline-start: 0.7rem;
+
+            width: 1.2rem;
+            height: 1.2rem;
+
+            outline: 1px solid red;
+            outline-offset: -1px;
+
+            box-shadow: 0 0 10px red;
+
+            transition: all 0.2s ease-in;
+
+            &:checked {
+                outline-color: lightgreen;
+
+                box-shadow: 0 0 10px lightgreen;
+
+                transition: all 0.2s ease-in;
+            }
+        }
+
+        a:first-of-type {
+            font-size: 1.2rem;
+            font-weight: 800;
+
+            text-decoration: none;
+
+            margin-inline: 1rem;
+            padding: 0.5rem;
+
+            background-color: transparent;
+            color: hsl(0, 100%, 75%);
+
+            border: 1px solid hsl(0, 100%, 75%);
+            border-radius: 2rem;
+
+            transition: all 0.3s ease-in;
+
+            &:hover {
+                background-color: hsl(0, 100%, 75%);
+                color: hsl(0, 100%, 100%);
+
+                transition: all 0.3s ease-in;
+            }
+        }
+
+        a:last-of-type {
+            font-size: 1.2rem;
+            font-weight: 800;
+
+            text-decoration: none;
+
+            margin-inline: 1rem;
+            padding: 0.5rem;
+
+            background-color: transparent;
+            color: hsl(210, 100%, 60%);
+
+            border: 1px solid hsl(210, 100%, 60%);
+            border-radius: 2rem;
+
+            transition: all 0.3s ease-in;
+
+            &:hover {
+                background-color: hsl(210, 100%, 60%);
+                color: hsl(0, 100%, 100%);
+
+                transition: all 0.3s ease-in;
+            }
+        }
+    }
+}

@@ -1,21 +1,35 @@
 .mainLight {
   display: flex;
-  position: relative;
   flex-direction: row;
   justify-content: flex-start;
   flex-grow: 1;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+  position: relative;
+
   padding: 1rem;
+
   background-color: #ffeefa;
   color: #333;
+
+  overflow-y: auto;
 }
 
 .mainDark {
   display: flex;
-  position: relative;
   flex-direction: row;
   justify-content: flex-start;
   flex-grow: 1;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+  position: relative;
+
   padding: 1rem;
+
   background-color: #333;
   color: #ffeefa;
+
+  overflow-y: auto;
 }

@@ -46,10 +46,14 @@ export const todoSlice = createSlice({ // Creating and slicer, which is the base
       if (todo) {
         todo.title = action.payload.title;
         todo.description = action.payload.description;
+        todo.completed = action.payload.completed;
       }
+    },
+    setLastID: (state, action) => { // Sets the lastId attribute.
+      state.value.lastId = action.payload;
     }
   }
 });
 
-export const { addTodo, removeTodo, toggleTodo, editTodo } = todoSlice.actions; // Exporting the function to manipulate the state.
+export const { addTodo, removeTodo, toggleTodo, editTodo, setLastID } = todoSlice.actions; // Exporting the function to manipulate the state.
 export const todoReducer = todoSlice.reducer; // This will be used for the selector.

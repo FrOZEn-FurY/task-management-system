@@ -30,6 +30,7 @@
   a {
     text-decoration: none;
     user-select: none;
+    transition: all 0.3s ease-in;
     
     &:hover {
       text-shadow: 5px 5px 10px #333;
@@ -86,6 +87,7 @@
   a {
     text-decoration: none;
     user-select: none;
+    transition: all 0.3s ease-in;
     
     &:hover {
       text-shadow: 5px 5px 10px #deeaae;
