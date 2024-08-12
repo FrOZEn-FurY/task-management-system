@@ -8,43 +8,52 @@ import { useTodoSelector } from "@/redux/todo/store";
 import { useDispatch } from "react-redux";
 import styles from './page.module.scss';
 import { useThemeSelector } from "@/redux/theme/store";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {XMarkIcon} from "@heroicons/react/20/solid";
 import Link from "next/link";
 
+interface Todo {
+    id: number,
+    title: string,
+    description: string,
+    completed: boolean,
+}
+
 export default function HomePage() {
-    const [showTodo, setShowTodo] = useState<number>(-1);
-    const todos = useTodoSelector((state) => state.todoReducer.value.todos);
+    const [showTodo, setShowTodo] = useState<Todo | undefined>(undefined);
+    const {todos, lastID } = useTodoSelector((state) => {
+        return {
+            todos: state.todoReducer.value.todos,
+            lastID: state.todoReducer.value.lastId
+        }
+    });
     const isDark = useThemeSelector((state) => state.themeReducer.isDarkMode);
     const dispatch = useDispatch();
     if (todos.length === 0) {
-        let cntr = 1;
-        while (true) {
-            console.log(localStorage.getItem("todo1"));
-            if (!localStorage.getItem(`todo${cntr}`))
-                break;
-            let todo = JSON.parse(localStorage.getItem(`todo${cntr}`) as string);
-            dispatch(addTodo(todo));
-            dispatch(setLastID(cntr));
-            cntr++;
-        }
+        Object.keys(localStorage).
+            filter(key => key.startsWith("todo")).
+            forEach(key => {
+                const task = JSON.parse(localStorage.getItem(key) as string);
+                dispatch(addTodo(task));
+                dispatch(setLastID(Math.max(lastID, task.id)));
+        })
     }
     return (
         <>
-            {showTodo !== -1 && 
+            {showTodo &&
                 <section className={isDark ? styles.showedTodoDark : styles.showedTodoLight}>
                     <h2>
-                        {todos[showTodo - 1].title}
+                        {showTodo.title}
                         <span onClick={handleClose}>
                             <XMarkIcon width={24} height={24}></XMarkIcon>
                         </span>
                     </h2>
-                    <p>{todos[showTodo - 1].description}</p>
+                    <p>{showTodo.description}</p>
                     <div>
                         <label htmlFor="completed">Completed:</label>
-                        <input type="checkbox" checked={todos[showTodo - 1].completed} onChange={() => handleToggle(showTodo)} />
-                        <Link href={`/delete/${showTodo}`}>Delete</Link>
-                        <Link href={`/edit/${showTodo}`}>Edit</Link>
+                        <input type="checkbox" checked={showTodo.completed} onChange={() => handleToggle(showTodo.id)} />
+                        <Link href={`/delete/${showTodo.id}`}>Delete</Link>
+                        <Link href={`/edit/${showTodo.id}`}>Edit</Link>
                     </div>
                 </section>
             }
@@ -57,7 +66,7 @@ export default function HomePage() {
                             <div>
                                 <label htmlFor="completed">Completed:</label>
                                 <input type="checkbox" checked={todo.completed} onChange={() => handleToggle(todo.id)} />
-                                <button data-id={todo.id} onClick={() => setShowTodo(todo.id)}>Show</button>
+                                <button data-id={todo.id} onClick={() => setShowTodo(todo)}>Show</button>
                             </div>
                         </section>
                     );
@@ -67,7 +76,7 @@ export default function HomePage() {
     );
 
     function handleClose() {
-        setShowTodo(-1);
+        setShowTodo(undefined);
     }
 
     function handleToggle(id: number) {
